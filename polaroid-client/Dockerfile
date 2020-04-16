@@ -9,4 +9,5 @@ RUN npm install -g @angular/cli@9.1.1
 
 COPY . /app
 
-CMD ng serve
+CMD ng serve --public-host http://shcherbakov.tech
+
