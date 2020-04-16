@@ -1,5 +1,5 @@
 {
-  "name": "palaroid-client",
+  "name": "polaroid-client",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

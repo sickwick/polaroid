@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "palaroid-client": {
+    "polaroid-client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/palaroid-client",
+            "outputPath": "dist/polaroid-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "palaroid-client:build"
+            "browserTarget": "polaroid-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "palaroid-client:build:production"
+              "browserTarget": "polaroid-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "palaroid-client:build"
+            "browserTarget": "polaroid-client:build"
           }
         },
         "test": {
@@ -114,15 +114,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "palaroid-client:serve"
+            "devServerTarget": "polaroid-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "palaroid-client:serve:production"
+              "devServerTarget": "polaroid-client:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "palaroid-client"
+  "defaultProject": "polaroid-client"
 }

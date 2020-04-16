@@ -1,1 +1,1 @@
-# palaroid
+# polaroid
