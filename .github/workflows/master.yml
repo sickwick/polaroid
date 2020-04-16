@@ -30,7 +30,7 @@ jobs:
     - name: Publish container
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: sickwick/polaroid:prod
+        name: sickwick/polaroid:latest
         username: ${{secrets.DOCKER_LOGIN}}
         password: ${{ secrets.DOCKER_PASSWORD }}
         context: ./polaroid-client
