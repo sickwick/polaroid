@@ -1,0 +1,40 @@
+name: Node.js CI
+
+on:
+  pull_request:
+    branches: [ master ]
+    types: [opened]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [13.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+   
+    - name: build
+      run: |
+        cd polaroid-client
+        npm i
+        docker build -t sickwick/polaroid:prod .
+        docker run -d -p 80:4200 sickwick/polaroid:prod
+        
+    - name: Publish container
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: sickwick/polaroid:prod
+        username: ${{secrets.DOCKER_LOGIN}}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        context: ./polaroid-client
+    - name: Pull image
+      run: |
+        curl ${{ secrets.PULL_POLAROID }}
