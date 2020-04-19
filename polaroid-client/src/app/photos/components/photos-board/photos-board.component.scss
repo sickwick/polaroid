@@ -1,18 +1,29 @@
-.board {
-  height: 100vh;
-  display: flex;
+.container-main {
+  display: grid;
+  grid-template-columns: 45vw;
+  grid-template-rows: 4vh auto;
+  grid-template-areas:
+    "filter"
+    "board";
   justify-content: center;
-  align-items: flex-start;
+}
 
-  .row {
-    width: 60vw;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 1vw;
+.filter {
+  grid-area: filter;
+  background-color: coral;
+}
 
-    .images {
-      padding: 0 0 3vh 0;
-    }
+.board {
+  grid-area: board;
+  display: grid;
+  grid-template-columns: repeat(4, 9vw);
+  grid-template-rows: 12vh;
+  grid-row-gap: 2vh;
+  justify-content: space-between;
+  margin-top: 1vh;
+
+  .images {
+    width: 100%;
+    height: 100%;
   }
 }

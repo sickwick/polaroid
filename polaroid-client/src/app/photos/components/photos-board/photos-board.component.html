@@ -1,7 +1,8 @@
-<div class="board">
-  <div class="row">
-    <div class="images" *ngFor="let photo of sources">
-      <img src="{{photo}}" alt="  ">
+<div class="container-main">
+  <div class="filter"></div>
+  <div class="board">
+    <div *ngFor="let photo of sources">
+      <img class="images" src="{{photo}}" alt="  ">
     </div>
   </div>
 </div>
