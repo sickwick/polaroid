@@ -1,0 +1,22 @@
+.container {
+  display: grid;
+  grid-template-columns: 12vw 62vw 12vw;
+  grid-template-rows: 8vh 76vh 12vh;
+  grid-template-areas:
+    "header  header header"
+    ". main ."
+    "footer  footer footer";
+  justify-content: center;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.header {
+  grid-area: header;
+}

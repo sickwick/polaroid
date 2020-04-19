@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {UtilityService} from '../../../core/utility.service';
 import {ISources} from '../../../models/ISources';
 
@@ -13,7 +13,10 @@ export class PhotosBoardComponent implements OnInit {
   photos: any[];
   sources: ISources[] = [];
   sizes: any;
-  constructor(private utility: UtilityService) { }
+  boardClass: string;
+  constructor(private utility: UtilityService) {
+    this.getSmallPhotos();
+  }
 
   ngOnInit(): void {
     this.getPhotos();
@@ -50,5 +53,13 @@ export class PhotosBoardComponent implements OnInit {
     for (const photo of this.photos) {
       console.log(photo);
     }
+  }
+
+  public getSmallPhotos() {
+    this.boardClass = 'sm-board';
+  }
+
+  public getHighPhotos() {
+    this.boardClass = 'hg-board';
   }
 }

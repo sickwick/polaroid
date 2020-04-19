@@ -1,13 +1,13 @@
-FROM node:latest
+FROM node:13-alpine
 
-WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-
-COPY package.json /app/package.json
-RUN npm install
-RUN npm install -g @angular/cli@9.1.1
+EXPOSE 4200
 
 COPY . /app
 
-CMD ng serve --public-host http://shcherbakov.tech
+WORKDIR /app
+
+RUN npm i && npm install -g @angular/cli@9.1.1 \
+  && npm cache clean --force
+
+CMD ng serve --host 0.0.0.0 --disableHostCheck
 
