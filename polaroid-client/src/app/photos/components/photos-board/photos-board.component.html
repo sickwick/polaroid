@@ -1,6 +1,10 @@
 <div class="container-main">
-  <div class="filter"></div>
-  <div class="board">
+  <div class="filter">
+    <span class="material-icons img" (click)="getSmallPhotos()" >apps</span>
+    <span class="material-icons img" (click)="getHighPhotos()">view_day</span>
+    <span class="material-icons img">turned_in_not</span>
+  </div>
+  <div [className]="boardClass">
     <div *ngFor="let photo of sources">
       <img class="images" src="{{photo}}" alt="  ">
     </div>
