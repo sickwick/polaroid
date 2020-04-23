@@ -22,25 +22,24 @@ export class PhotosBoardComponent implements OnInit {
     this.getPhotos();
   }
 
-  public getPhotos() {
+  public getPhotos(): void {
     this.utility.getPhotoList().subscribe(
       value => {
         this.photos = value.photos.photo;
         for (const photo of this.photos) {
-          this.getPhotoSizes(photo.id);
+          this.getPhotoSizes(photo.id, this.getPhotoWidth());
         }
       },
       error => console.log(error)
     );
   }
 
-  public getPhotoSizes(id: string){
+  public getPhotoSizes(id: string, height: number): void {
     this.utility.getLinkById(id).subscribe(
       value => {
         this.sizes = value;
         for (const size of this.sizes.sizes.size) {
-          console.log(size);
-          if (size.width === 150) {
+          if (size.width === height) {
             this.sources.push(size.source);
           }
         }
@@ -49,17 +48,15 @@ export class PhotosBoardComponent implements OnInit {
     );
   }
 
-  public async getUrl() {
-    for (const photo of this.photos) {
-      console.log(photo);
-    }
-  }
-
-  public getSmallPhotos() {
+  public getSmallPhotos(): void {
     this.boardClass = 'sm-board';
   }
 
-  public getHighPhotos() {
+  public getHighPhotos(): void {
     this.boardClass = 'hg-board';
+  }
+
+  public getPhotoWidth(): number {
+    return this.boardClass === 'sm-board' ? 150 : 800;
   }
 }
